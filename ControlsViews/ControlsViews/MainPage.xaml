@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ControlsViews"
+             x:Class="ControlsViews.MainPage">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness"
+                    iOS="0,20,0,0"
+                    Android="0,0,0,0"
+                    />
+    </ContentPage.Padding>
+
+    <ScrollView>
+        <StackLayout Orientation="Vertical">
+
+            <Button Text="This is the button"/>
+            <Label Text="This is the label"/>
+            <Entry Text="..."/>
+            <Editor Text="Editor: " WidthRequest="30" BackgroundColor="Gray"/>
+            <BoxView Color="Blue" WidthRequest="50" HeightRequest="50"/>
+            <Picker x:Name="picker"/>
+            <DatePicker/>
+            <TimePicker/>
+            <ProgressBar Progress="10"/>
+            <SearchBar/>
+            <Slider Maximum="100" Minimum="0" Value="25"/>
+            <Switch IsToggled="True"/>
+            <Stepper Minimum="1" Maximum="10" Value="1"/>
+            <WebView Source="https://google.com/" HeightRequest="100"/>
+            <!--<Image Source="a.jpeg"/>-->
+        </StackLayout>
+    </ScrollView>
+
+</ContentPage>

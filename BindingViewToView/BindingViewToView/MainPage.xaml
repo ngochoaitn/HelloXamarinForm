@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:BindingViewToView"
+             x:Class="BindingViewToView.MainPage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:DoubleToIntConverter x:Key="d2i"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <StackLayout VerticalOptions="Center">
+        <Slider x:Name="sl1" Maximum="100" Minimum="0"/>
+    <Label x:Name="lblbinding"
+        BindingContext="{x:Reference Name=sl1}"
+        Text="{Binding Path=Value, 
+               Converter={StaticResource Key=d2i},
+               ConverterParameter=2,
+               StringFormat='Value is {0}'
+              }"/>
+
+        <Label Text="OneWay"/>
+        <Slider x:Name="sl2" Maximum="100" Minimum="0"
+        BindingContext="{x:Reference Name=sl1}"
+                Value="{Binding Path=Value, Mode=OneWay}"
+            />
+
+        <Label Text="OneWayToSource"/>
+        <Slider x:Name="sl3" Maximum="100" Minimum="0"
+        BindingContext="{x:Reference Name=sl1}"
+                Value="{Binding Path=Value, Mode=OneWayToSource}"
+            />
+
+        <Label Text="TwoWay"/>
+        <Slider x:Name="sl4" Maximum="100" Minimum="0"
+        BindingContext="{x:Reference Name=sl1}"
+                Value="{Binding Path=Value, Mode=TwoWay}"
+            />
+
+        <Label
+            BindingContext="{x:Reference Name=sl1}}"
+            Text="{Binding Path=Value,
+                   StringFormat='by xaml: {0:f0}'}"
+            />
+
+        <Label x:Name="lblBindingByCode"/>
+    </StackLayout>
+
+</ContentPage>

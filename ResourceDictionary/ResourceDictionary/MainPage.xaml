@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ResourceDictionary"
+             x:Class="ResourceDictionary.MainPage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <x:Double x:Key="big">100</x:Double>
+            <Color x:Key="myRed">Red</Color>
+            <Color x:Key="myGreen">Green</Color>
+            <LayoutOptions x:Key="giua"
+                            Alignment="Fill"
+                            Expands="False"
+                            />
+            <OnPlatform x:Key="textColorPlatform"
+                        x:TypeArguments="Color"
+                        iOS="Red"
+                        Android="Aqua"
+                        />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Label Text="Hello"
+        HorizontalOptions="{StaticResource giua}"
+           TextColor="{StaticResource Key=textColorPlatform}"
+           BackgroundColor="{StaticResource Key=myGreen}"
+           Font="{StaticResource sFont}"/>
+
+</ContentPage>

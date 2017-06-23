@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:XamlBasic"
+             x:Class="XamlBasic.MainPage">
+
+    <!--Platform-specific markup-->
+    <ContentPage.Padding>
+        <OnPlatform
+            x:TypeArguments="Thickness"
+            iOS="0,20,0,0"
+            Android="0,0,0,0"
+            />
+    </ContentPage.Padding>
+    
+    <RelativeLayout
+        HorizontalOptions="Center"
+        >
+
+        <!--Cách 1: dùng elements-->
+
+        <Label
+            Text="Hello element xaml"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            BackgroundColor="Red"
+            FontSize="30"
+            TextColor="Green"
+        />
+
+        <!--Cách 2: dùng property-->
+
+        <Label>
+            <Label.Text>Hello Property Xaml</Label.Text>
+            <Label.HorizontalOptions>Center</Label.HorizontalOptions>
+            <Label.VerticalOptions>Center</Label.VerticalOptions>
+        </Label>
+
+        <!--Một số dạng bắt buộc phải dùng cách 2-->
+        <Grid>
+            <!--Khai báo thuộc tính: 3 cột, 3 bàng-->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <BoxView Grid.Row="0" Grid.Column="0" BackgroundColor="Red"/>
+            <BoxView Grid.Row="0" Grid.Column="1" BackgroundColor="Gray"/>
+            <BoxView Grid.Row="0" Grid.Column="2" BackgroundColor="Blue"/>
+
+            <BoxView Grid.Row="1" Grid.Column="0" BackgroundColor="Yellow"/>
+            <BoxView Grid.Row="1" Grid.Column="1" BackgroundColor="Purple"/>
+            <BoxView Grid.Row="1" Grid.Column="2" BackgroundColor="Red"/>
+
+            <BoxView Grid.Row="2" Grid.Column="0" BackgroundColor="Silver"/>
+            <BoxView Grid.Row="2" Grid.Column="1" BackgroundColor="Lime"/>
+            <BoxView Grid.Row="2" Grid.Column="2" BackgroundColor="Blue"/>
+        </Grid>
+
+    </RelativeLayout>
+</ContentPage>
